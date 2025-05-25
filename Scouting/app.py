@@ -2,11 +2,13 @@ import streamlit as st
 import pandas as pd
 from sklearn.decomposition import PCA
 from sklearn.neighbors import NearestNeighbors
+import os
 
 # Load data
 @st.cache_data
 def load_data():
-    return pd.read_csv("standardized_players.csv")
+    filepath = os.path.join(os.path.dirname(__file__), "standardized_players.csv")
+    return pd.read_csv(filepath)
 
 df = load_data()
 
